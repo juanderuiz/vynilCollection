@@ -1,16 +1,28 @@
 <div class="container">
-  <div class="large-12 columns">
-    {{ user | json }}
+  <div class="row">
+    <div class="large-12 small-12 columns">
+      <h2>Welcome back {{ user.name }}</h2>
+    </div>
   </div>
-  <ul>
-    <li class="row" ng-repeat="article in articles | orderBy:publishedDate:false">
-      <div class="large-8 small-8 columns">
-        <h2><a href="{{ article.link }}" title="{{ article.title }}">{{ article.title }}</a></h2>
-        <p>{{ article.contentSnippet }}</p>
-      </div>
-      <div class="large-4 small-4 columns">
-        <h4><a ng-click="share(article)">Share this</a></h4>
-      </div>
-    </li>
-  </ul>  
+  <div class="row">
+    <ul class="large-12 columns">
+      <li class="row" data-ng-repeat="article in articles | orderBy:publishedDate:false">
+        <div class="large-8 small-8 columns">
+          <h2><a href="{{ article.link }}" title="{{ article.title }}">{{ article.title }}</a></h2>
+          <p>{{ article.contentSnippet }}</p>
+        </div>
+        <div class="large-4 small-4 columns">
+          <h4><a data-ng-click="showShareBox = !showShareBox">Share this</a></h4>
+          <div data-ng-show="showShareBox">
+            <form ng-submit="showShareBox=!showShareBox;share(article)" name="shareForm">
+              <label>Share with a friend</label>
+              <input type="text" placeholder="email or username" data-ng-model="newShare.recipient" is-user-or-email />
+              <input type="button" class="button alert small" value="Cancel" data-ng-click="showShareBox = !showShareBox" />
+              <input type="submit" class="button small" ng-disabled="shareForm.$invalid" value="Share" />
+            </form>
+          </div>
+        </div>
+      </li>
+    </ul>  
+  </div>
 </div>

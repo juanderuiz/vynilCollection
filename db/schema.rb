@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20130901063053) do
   end
 
   create_table "shares", force: true do |t|
-    t.integer  "from_user"
-    t.integer  "to_user"
+    t.integer  "from_user_id"
+    t.integer  "to_user_id"
     t.string   "to_email"
     t.datetime "created_at"
     t.string   "url"

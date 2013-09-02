@@ -22,21 +22,17 @@ angular.module('myApp.services', ['ngResource'])
   return service;
 })
 .factory('Share', function($resource) {
-  var service = $resource('/shares/:id',
+  var service = $resource('/shares/:id.json',
       { id: '@id' },
-      {
-        list: {
-          method: 'GET',
-          isArray: true
-        }
-      });
+      {}
+    );
 
   return service;
 })
-.factory("SessionService", function($location, $http, $q) {
+.factory("SessionService", function($http, $q) {
   var service;
   return service = {
-    requestCurrentUser: function() {
+    getCurrentUser: function() {
       if (service.isAuthenticated()) {
         return $q.when(service.currentUser);
       } else {

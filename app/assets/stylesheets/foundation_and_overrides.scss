@@ -1301,3 +1301,9 @@ $default-float: left;
 // $topbar-sticky-class: ".sticky";
 
 @import 'foundation';
+
+body {
+  ul {
+    list-style-type: none;
+  }
+}
