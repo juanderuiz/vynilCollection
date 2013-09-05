@@ -1,28 +1,38 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <h1><a href="#">Welcome back {{ user.name }} </a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="divider show-for-small"></li>
+      <li>
+        <a href="/users/sign_out">Sign out</a>
+      </li>
+    </ul>
+  </section>
+</nav>
 <div class="container">
-  <div class="row">
-    <div class="large-12 small-12 columns">
-      <h2>Welcome back {{ user.name }}</h2>
-    </div>
-  </div>
   <div class="row">
     <ul class="large-12 columns">
       <li class="row" data-ng-repeat="article in articles | orderBy:publishedDate:false">
-        <div class="large-8 small-8 columns">
-          <h2><a href="{{ article.link }}" title="{{ article.title }}">{{ article.title }}</a></h2>
-          <p>{{ article.contentSnippet }}</p>
-        </div>
-        <div class="large-4 small-4 columns">
-          <h4><a data-ng-click="showShareBox = !showShareBox">Share this</a></h4>
-          <div data-ng-show="showShareBox">
-            <form ng-submit="showShareBox=!showShareBox;share(article)" name="shareForm">
-              <label>Share with a friend</label>
-              <input type="text" placeholder="email or username" data-ng-model="newShare.recipient" is-user-or-email />
-              <input type="button" class="button alert small" value="Cancel" data-ng-click="showShareBox = !showShareBox" />
-              <input type="submit" class="button small" ng-disabled="shareForm.$invalid" value="Share" />
-            </form>
-          </div>
-        </div>
+      <article-listing ng-model="article" on-share="showShareArticleModal(article)"></article-listing>
       </li>
-    </ul>  
+    </ul>
   </div>
+</div>
+
+<div id="shareModal" class="reveal-modal">
+<form ng-submit="share(currentArticle)" name="shareForm">
+  <p>{{ currentArticle.title }}</p>
+  <label>Share with a friend</label>
+  <input type="text" placeholder="email or username" data-ng-model="newShare.recipient" is-user-or-email />
+  <input type="button" class="button alert small" value="Cancel" data-ng-click="hideShareArticleModal()" />
+  <input type="submit" class="button small" ng-disabled="shareForm.$invalid" value="Share" />
+</form>
 </div>

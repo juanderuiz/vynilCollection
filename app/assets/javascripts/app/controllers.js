@@ -5,6 +5,14 @@ angular.module('myApp.controllers', [])
   $scope.newShare = {
     recipient: ''
   };
+  $scope.showShareArticleModal = function(article) {
+    $scope.currentArticle = article;
+    $('#shareModal').foundation('reveal', 'open');
+  }
+  $scope.hideShareArticleModal = function() {
+    $scope.currentArticle = null;
+    $('#shareModal').foundation('reveal', 'close');
+  }
   $scope.share = function(article) {
     Share.save({
       url: article.link,
@@ -12,5 +20,6 @@ angular.module('myApp.controllers', [])
       user: $scope.newShare.recipient
     });
     $scope.newShare.recipient = '';
+    $scope.hideShareArticleModal();
   }
 });

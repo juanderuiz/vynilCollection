@@ -43,4 +43,20 @@ angular.module('myApp.directives', [])
     }
   }
 })
+.directive('articleListing', function() {
+  return {
+    restrict: 'EA',
+    require: 'ngModel',
+    scope: {
+      'ngModel': '=',
+      'onShare': '&'
+    },
+    templateUrl: 'templates/article_listing.html',
+    link: function(scope, ele, attrs, ctrl) {
+      scope.showShareModalFor = function(article) {
+        scope.onShare({'article': article});
+      };
+    }
+  }
+})
 ;

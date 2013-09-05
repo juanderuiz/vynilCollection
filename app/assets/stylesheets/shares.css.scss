@@ -3,21 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "_mixins";
+@import "foundation_and_overrides";
 
-.slide-animation {
-  height: 150px;
-  @include animation(0.0s, 0.5s, enter_sequence);
-}
-
-@include keyframe(enter_sequence) {
-  from {
-    height: 0;
+.article-listing {
+  h2 {
+    font-size: 14px;
   }
-  to {
-    height: 150px;
+  p {
+    font-size: 12px;
+    overflow: hidden;
   }
+  h4 a {
+    display: inline;
+  }
+  .middle {
+    margin-top: 15px;
+  }
+  border: 1px solid #f2f2f2;
+  height:50px;
+  @include border-radius(5px);
+  @include linear-top-gradient(#fff, #eee);
+  @include box-shadow();
 }
-
 
 input.ng-dirty.ng-valid {
   border: 1px solid green;
