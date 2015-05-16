@@ -1,25 +1,20 @@
 angular.module('myApp.controllers', [])
 .controller('HomeController', function($scope, session, SessionService, ArticleService, Share) {
-  $scope.articles = ArticleService.getLatestFeed();
+  ArticleService.getLatestFeed()
+  .then(function(data) {
+    $scope.articles = data;
+  });
   $scope.user = session.user;
   $scope.newShare = {
     recipient: ''
   };
-  $scope.showShareArticleModal = function(article) {
-    $scope.currentArticle = article;
-    $('#shareModal').foundation('reveal', 'open');
-  }
-  $scope.hideShareArticleModal = function() {
-    $scope.currentArticle = null;
-    $('#shareModal').foundation('reveal', 'close');
-  }
-  $scope.share = function(article) {
-    Share.save({
+  $scope.share = function(recipient, article) {
+    var share = new Share({
       url: article.link,
       from_user: $scope.user.id,
-      user: $scope.newShare.recipient
+      user: recipient
     });
+    share.$save();
     $scope.newShare.recipient = '';
-    $scope.hideShareArticleModal();
   }
 });

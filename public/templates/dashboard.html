@@ -21,18 +21,9 @@
   <div class="row">
     <ul class="large-12 columns">
       <li class="row" data-ng-repeat="article in articles | orderBy:publishedDate:false">
-      <article-listing ng-model="article" on-share="showShareArticleModal(article)"></article-listing>
+      <article-listing ng-model="article" on-share="share(recipient, article)"></article-listing>
       </li>
     </ul>
   </div>
 </div>
 
-<div id="shareModal" class="reveal-modal">
-<form ng-submit="share(currentArticle)" name="shareForm">
-  <p>{{ currentArticle.title }}</p>
-  <label>Share with a friend</label>
-  <input type="text" placeholder="email or username" data-ng-model="newShare.recipient" is-user-or-email />
-  <input type="button" class="button alert small" value="Cancel" data-ng-click="hideShareArticleModal()" />
-  <input type="submit" class="button small" ng-disabled="shareForm.$invalid" value="Share" />
-</form>
-</div>

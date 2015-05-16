@@ -20,7 +20,9 @@
     margin-top: 15px;
   }
   border: 1px solid #f2f2f2;
-  height:50px;
+  min-height:50px;
+  overflow: auto;
+  margin: 10px 0;
   @include border-radius(5px);
   @include linear-top-gradient(#fff, #eee);
   @include box-shadow();
