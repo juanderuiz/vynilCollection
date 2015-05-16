@@ -1,6 +1,7 @@
 angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.services', 'myApp.directives', 'myApp.filters', 'ngAnimate'])
 .config(function($routeProvider) {
-  $routeProvider.when('/', {
+  $routeProvider
+  .when('/', {
     templateUrl: '/templates/dashboard.html', 
     controller: 'HomeController',
     resolve: {
