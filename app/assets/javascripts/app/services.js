@@ -1,4 +1,12 @@
 angular.module('myApp.services', ['ngResource'])
+.factory('Band', function($resource){
+    var Band = $resource('/api/v1/bands/:id',
+                       {id: '@id'}, {
+                        'query':  { method:'GET', isArray:true },
+                        'update': { method: 'PUT' }
+                       });
+    return Band;
+})
 .factory('ArticleService', function($http, $q) {
   var service = {
     getLatestFeed: function() {
