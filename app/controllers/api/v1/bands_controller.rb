@@ -20,6 +20,7 @@ module Api
 
       def create
       	band = Band.new(band_params)
+        band.user_id = current_user.id;#This should be put as hidden in the Angular Form
       	if band.save
       	  render json: band, status: 201, location: band
       	else
@@ -28,6 +29,9 @@ module Api
       end
 
       def update
+        #The band should be owned by the user who created
+        #And only this user should be able to edit the band
+        #So we have to check that current_user == band.user_id
       end
 
       def destroy
