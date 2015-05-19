@@ -42,7 +42,7 @@ module Api
 
       private
       def band_params
-      	params.require(:band).permit(:name,:url)
+      	params.require(:band).permit(:name,:url,:user_id)
       end
     end
   end

@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.bandIndexCtrl', 'myApp.bandShowCtrl', 'myApp.services', 'myApp.directives', 'myApp.filters', 'ngAnimate'])
+angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.bandIndexCtrl', 'myApp.bandNewCtrl', 'myApp.bandShowCtrl', 'myApp.services', 'myApp.directives', 'myApp.filters', 'ngAnimate'])
 .config(function($routeProvider) {
   $routeProvider
   .when('/', {
@@ -14,6 +14,10 @@ angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.bandIndexCtrl', 
     controller: 'bandIndexCtrl',
     templateUrl : 'templates/bandIndexTemplate.html'
   })
+  .when('/bands/new',{
+    controller: 'bandNewCtrl',
+    templateUrl : 'templates/bandNewTemplate.html'
+  })
   .when('/bands/:id',{
     controller: 'bandShowCtrl',
     templateUrl : 'templates/bandShowTemplate.html'
@@ -23,4 +27,3 @@ angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.bandIndexCtrl', 
   });
 });
 
-;
