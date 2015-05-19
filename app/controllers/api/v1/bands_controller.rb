@@ -22,7 +22,7 @@ module Api
       	band = Band.new(band_params)
         band.user_id = current_user.id;#This should be put as hidden in the Angular Form
       	if band.save
-      	  render json: band, status: 201, location: band
+      	  render json: band, status: 201#, location: band
       	else
       	  render json: band.errors, status: 422
       	end
