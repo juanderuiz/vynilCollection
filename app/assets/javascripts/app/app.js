@@ -20,7 +20,12 @@ angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.bandIndexCtrl', 
   })
   .when('/bands/:id',{
     controller: 'bandShowCtrl',
-    templateUrl : 'templates/bandShowTemplate.html'
+    templateUrl : 'templates/bandShowTemplate.html',
+    resolve: {
+      session: function(SessionService) {
+        return SessionService.getCurrentUser();
+      }
+    }
   })
   .otherwise({
     redirectTo: '/'

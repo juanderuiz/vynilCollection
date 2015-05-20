@@ -1,6 +1,9 @@
 <div class="col-md-2 col-md-offset-1 sidebar text-center">
-	  <h2>{{band.name}}</h2>
+    <div>
+	  <h2>{{band.name}}-{{band.user_id}}</h2>
+	  <button type="button" class="btn btn-danger" ng-click="deleteBand(band.id)"><span class="glyphicon glyphicon-trash"></span></button>
 	  <a href="{{band.url}}"><h5>+Info</h5></a>
+	</div>
 	  <ul class="nav nav-sidebar list-unstyled">
 	      <h3>Discos que tienes de esta banda</h3>
 	      <li ng-repeat='album in albums' ng-click="">
