@@ -1,7 +1,8 @@
 <div class="col-md-2 col-md-offset-1 sidebar text-center">
     <div>
 	  <h2>{{band.name}}-{{band.user_id}}</h2>
-	  <button type="button" class="btn btn-danger" ng-click="deleteBand(band.id)"><span class="glyphicon glyphicon-trash"></span></button>
+	  <button type="button" class="btn btn-danger" ng-click="deleteBand(band.id)">Delete</button>
+	  <h6 ng-if="caution">Sorry, that's not your band :(</h6>
 	  <a href="{{band.url}}"><h5>+Info</h5></a>
 	</div>
 	  <ul class="nav nav-sidebar list-unstyled">
