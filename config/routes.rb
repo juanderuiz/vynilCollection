@@ -4,7 +4,7 @@ Shareup::Application.routes.draw do
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       resources :vinilos, only: [:index]
-      resources :bands, only: [:index, :show, :create, :destroy] do
+      resources :bands, only: [:index, :show, :create, :update, :destroy] do
         resources :albums, only: [:index, :show, :create, :update, :destroy]
       end
     end

@@ -32,6 +32,13 @@ module Api
         #The band should be owned by the user who created
         #And only this user should be able to edit the band
         #So we have to check that current_user == band.user_id
+        band = Band.find(params[:id])
+        if band.update(name: band_params[:name], url: band_params[:url])
+          render json: band, status: 201
+        else
+          render json: band.errors, status: 422
+        end
+
       end
 
       def destroy

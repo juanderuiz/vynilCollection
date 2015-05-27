@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.bandIndexCtrl', 'myApp.bandNewCtrl', 'myApp.bandShowCtrl', 'myApp.services', 'myApp.directives', 'myApp.filters', 'ngAnimate'])
+angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.bandIndexCtrl', 'myApp.bandNewCtrl', 'myApp.bandShowCtrl', 'myApp.bandEditCtrl', 'myApp.services', 'myApp.directives', 'myApp.filters', 'ngAnimate'])
 .config(function($routeProvider) {
   $routeProvider
   .when('/', {
@@ -21,6 +21,15 @@ angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.bandIndexCtrl', 
   .when('/bands/:id',{
     controller: 'bandShowCtrl',
     templateUrl : 'templates/bandShowTemplate.html',
+    resolve: {
+      session: function(SessionService) {
+        return SessionService.getCurrentUser();
+      }
+    }
+  })
+  .when('/bands/:id/edit',{
+    controller: 'bandEditCtrl',
+    templateUrl : 'templates/bandEditTemplate.html',
     resolve: {
       session: function(SessionService) {
         return SessionService.getCurrentUser();
