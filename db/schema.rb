@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518110322) do
+ActiveRecord::Schema.define(version: 20150528150055) do
+
+  create_table "albums", force: true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.integer  "band_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "albums", ["band_id"], name: "index_albums_on_band_id"
+  add_index "albums", ["user_id"], name: "index_albums_on_user_id"
 
   create_table "authorizations", force: true do |t|
     t.string   "provider"
