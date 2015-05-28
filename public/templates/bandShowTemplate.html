@@ -12,9 +12,9 @@
 	  <a href="{{band.url}}"><h5>+Info(Open new window)</h5></a>
 	</div>
 	  <ul class="nav nav-sidebar list-unstyled">
-	      <h3>Discos que tienes de esta banda</h3>
+	      <h3>Discos en la Colección</h3>
 	      <li ng-repeat='album in albums' ng-click="">
-	        <h4>+{{album.title}}</h4>
+	        <h4>+ <a ng-href="#/bands/{{band.id}}/album/{{album.id}}">{{album.title}}</a> del usuario {{album.user_id}}</h4>
 	      </li>
 	  </ul>
 </div>

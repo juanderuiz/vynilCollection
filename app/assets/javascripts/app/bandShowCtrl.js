@@ -10,7 +10,12 @@ angular
     
     Album.query({band_id: $routeParams.id}).$promise.then(function(albums) {
       $scope.albums = albums;
-      console.log("Albums retrieved!");
+      if (albums.length > 0){
+        console.log("Albums retrieved!");
+      } else {
+        console.log("No albums for that band :(");
+      }
+      
     });
     //We need the user to get his ID
     $scope.user = session.user;
