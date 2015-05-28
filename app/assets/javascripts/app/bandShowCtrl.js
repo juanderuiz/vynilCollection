@@ -1,6 +1,6 @@
 angular
   .module('myApp.bandShowCtrl',[])
-  .controller('bandShowCtrl', function($scope, Band, $routeParams, $location, session) {
+  .controller('bandShowCtrl', function($scope, Band, Album, $routeParams, $location, session) {
     Band.get({id: $routeParams.id}).$promise.then(function(band) {
       $scope.band = band;
       //If the current user is the owner, we will show buttons in the template
@@ -8,7 +8,10 @@ angular
       console.log("Owner? " + $scope.owner);
     });
     
-    $scope.albums = null;
+    Album.query({band_id: $routeParams.id}).$promise.then(function(albums) {
+      $scope.albums = albums;
+      console.log("Albums retrieved!");
+    });
     //We need the user to get his ID
     $scope.user = session.user;
 
