@@ -6,5 +6,5 @@ angular
     $scope.saveBand = function(band){
       Band.save(band);
       $location.path('/bands');
-    }
+    };
 }]);

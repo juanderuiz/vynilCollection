@@ -3,7 +3,8 @@
     <!-- Title Area -->
     <li class="name">
       <h1><a href="#">Welcome back {{ user.email }} </a></h1>
-      <h1><a ng-href="#/bands">Ver bandas</a></h1>
+      <h1><a href="#/albums/new">New Album</a></h1>
+      <h1><a ng-href="#/bands">Band List</a></h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
@@ -21,9 +22,9 @@
 <div class="container">
   <div class="row">
     <ul class="large-12 columns">
-      <li class="row" data-ng-repeat="article in articles | orderBy:publishedDate:false">
+      <!--<li class="row" data-ng-repeat="article in articles | orderBy:publishedDate:false">
       <article-listing ng-model="article" on-share="share(recipient, article)"></article-listing>
-      </li>
+      </li>-->
     </ul>
   </div>
 </div>

@@ -20,7 +20,7 @@ module Api
 
       def create
       	band = Band.new(band_params)
-        band.user_id = current_user.id; #This should be put as hidden in the Angular Form
+        band.user_id = current_user.id; #Should be put as hidden in the Angular Form??
       	if band.save
       	  render json: band, status: 201  #location: band
       	else

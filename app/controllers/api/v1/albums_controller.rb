@@ -22,6 +22,7 @@ module Api
 
       def create
         album = @band.albums.new(album_params)
+        album.user_id = current_user.id; #Should be put as hidden in the Angular Form??
         if album.save
           #@band.increaseTotal
           render json: album, status: 201 #, location: url_for([@band, album])

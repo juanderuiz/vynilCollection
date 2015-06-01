@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   has_many :authorizations, :dependent => :destroy
 
   has_many :bands
-  has_many :albums
+  has_many :albums, :dependent => :destroy
+
 
   def self.find_by_name_or_email(name)
     ## Find by name or email (place to optimize)

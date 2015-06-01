@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.bandIndexCtrl', 'myApp.bandNewCtrl', 'myApp.bandShowCtrl', 'myApp.bandEditCtrl', 'myApp.services', 'myApp.directives', 'myApp.filters', 'ngAnimate'])
+angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.bandIndexCtrl', 'myApp.bandNewCtrl', 'myApp.bandShowCtrl', 'myApp.bandEditCtrl', 'myApp.albumNewCtrl', 'myApp.services', 'myApp.directives', 'myApp.filters', 'ngAnimate'])
 .config(function($routeProvider) {
   $routeProvider
   .when('/', {
@@ -35,6 +35,10 @@ angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.bandIndexCtrl', 
         return SessionService.getCurrentUser();
       }
     }
+  })
+  .when('/albums/new',{
+    controller: 'albumNewCtrl',
+    templateUrl: 'templates/albumNewTemplate.html'
   })
   .otherwise({
     redirectTo: '/'

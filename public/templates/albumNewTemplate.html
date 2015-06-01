@@ -1,0 +1,14 @@
+<h2>New Album for Band XXXX</h2>
+<form>
+  <fieldset class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="Ritual de lo Habitual" ng-model="newAlbum.title">
+  </fieldset>
+  <fieldset class="form-group">
+    <select class="form-control" id="band_id" name="band_id" ng-model="newAlbum.band_id"
+        data-ng-options="b.id as b.name for b in bands">
+    </select> 
+  </fieldset>
+  <button type="submit" class="btn btn-default" ng-click="saveAlbum(newAlbum)">Create Album</button>
+  <a class="btn btn-info" ng-href="#/bands">Discard</a>
+</form>
