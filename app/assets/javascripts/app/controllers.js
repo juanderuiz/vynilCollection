@@ -1,5 +1,5 @@
 angular.module('myApp.controllers', [])
-.controller('HomeController', function($scope, session, SessionService, ArticleService, Share) {
+.controller('HomeController', function($scope, session, SessionService, ArticleService, Share, Album) {
   ArticleService.getLatestFeed()
   .then(function(data) {
     $scope.articles = data;
@@ -16,5 +16,14 @@ angular.module('myApp.controllers', [])
     });
     share.$save();
     $scope.newShare.recipient = '';
-  }
+  };
+
+  Album.query({band_id: "NO"}).$promise.then(function(albums) {
+      $scope.albums = albums;
+      if (albums.length > 0){
+        console.log("Albums for Main Page retrieved!");
+      } else {
+        console.log("No albums for Main Page :(");
+      }
+  });
 });

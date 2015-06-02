@@ -1,30 +1,42 @@
-<nav class="top-bar">
-  <ul class="title-area">
-    <!-- Title Area -->
-    <li class="name">
-      <h1><a href="#">Welcome back {{ user.email }} </a></h1>
-      <h1><a href="#/albums/new">New Album</a></h1>
-      <h1><a ng-href="#/bands">Band List</a></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
-
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="divider show-for-small"></li>
-      <li>
-        <a href="/users/sign_out">Sign out</a>
-      </li>
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <a href="/" class="navbar-brand">
+        Vynil Collection v0.2
+    </a>
+    <ul class="nav nav-pills navbar-right">
+      <!-- Title Area -->
+      <li><a href="#">Welcome back {{ user.email }} </a></li>
+      <li><a href="#/albums/new">New Album</a></li>
+      <li><a ng-href="#/bands">Band List</a></li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
-  </section>
-</nav>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="left">
+        <li class="divider show-for-small"></li>
+        <li>
+          <a href="/users/sign_out">Sign out</a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <ul class="large-12 columns">
       <!--<li class="row" data-ng-repeat="article in articles | orderBy:publishedDate:false">
       <article-listing ng-model="article" on-share="share(recipient, article)"></article-listing>
       </li>-->
+    </ul>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <ul class="col-md-12 text-center">
+      <li class="col-md-3" data-ng-repeat="album in albums">
+        <a href="">{{album.title}}</a>
+      </li>
     </ul>
   </div>
 </div>

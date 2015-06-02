@@ -3,14 +3,18 @@ module Api
     class AlbumsController < ApplicationController
       #skip_before_filter  :verify_authenticity_token
       before_filter :authenticate_user!
-      before_action :get_band#, :get_user
+      before_action :get_band #, :get_user
 
       def default_serializer_options
         {root: false}
       end
 
       def index
-      	albums = @band.albums
+        if  @band == "No band"
+      	  albums = Album.limit(10).order('id DESC')
+        else
+          albums = @band.albums
+        end
         respond_to do |format|
           format.json { render json: albums, status: 200 }
           format.xml { render xml: albums, status: 200 }
@@ -51,7 +55,11 @@ module Api
       private
         # Use callbacks to share common setup or constraints between actions.
         def get_band
-          @band = Band.find(params[:band_id])
+          if params[:band_id] == "NO" #If there's no id, it's searching the latest
+            @band = "No band"
+          else
+            @band = Band.find(params[:band_id])
+          end
         end
 
         def get_user
