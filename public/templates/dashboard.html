@@ -1,43 +1,20 @@
-<div class="navbar navbar-inverse">
-  <div class="container">
-    <a href="/" class="navbar-brand">
-        Vynil Collection v0.2
-    </a>
-    <ul class="nav nav-pills navbar-right">
-      <!-- Title Area -->
-      <li><a href="#">Welcome back {{ user.email }} </a></li>
-      <li><a href="#/albums/new">New Album</a></li>
-      <li><a ng-href="#/bands">Band List</a></li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="left">
-        <li class="divider show-for-small"></li>
-        <li>
-          <a href="/users/sign_out">Sign out</a>
-        </li>
-      </ul>
-    </section>
-  </div>
-</div>
 <div class="container">
-  <div class="row">
-    <ul class="large-12 columns">
-      <!--<li class="row" data-ng-repeat="article in articles | orderBy:publishedDate:false">
-      <article-listing ng-model="article" on-share="share(recipient, article)"></article-listing>
-      </li>-->
-    </ul>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <ul class="col-md-12 text-center">
-      <li class="col-md-3" data-ng-repeat="album in albums">
-        <a href="">{{album.title}}</a>
-      </li>
-    </ul>
-  </div>
+  <h3 class="text-center">At a glance...10 last albums created by our users! <a class="btn btn-primary" href="#/albums/new" role="button">New one?</a></h3>
+  <table class="table table-hover">
+        <tr class="text-center info">
+          <th class="text-center">Album</th>
+          <th class="text-center">Band</th>
+          <th class="text-center">Best song</th>
+          <th class="text-center">Press Review</th>
+          <th class="text-center">Buy Online</th>
+            </tr>
+            <tr class="text-center" ng-repeat='album in albums'>
+              <td>{{album.title}}</td>
+              <td>{{album.band_id}}</td>
+              <td>Best Song</td>
+              <td class="active"><a href="http://www.pitchfork.com">Link</a></td>
+              <td class="active"><a href="http://www.pitchfork.com">Buy</a></td>
+            </tr>
+  </table>
 </div>
 

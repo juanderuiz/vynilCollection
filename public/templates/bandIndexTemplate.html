@@ -1,10 +1,10 @@
-<!-- SIDEBAR SHOWING BANDS -->
-	<div class="col-md-12 text-center">
-	  <h2 class="col-md-6 col-md-offset-3 text-center">Bandas <a class="btn btn-primary" href="#/bands/new" role="button">New</a></h2>
-	  <ul class="col-md-12 text-center">
-	      <li class="col-md-2 text-center" ng-repeat='band in bands' ng-click="setCurrentBand(band);selectAlbums(band.id)">
-	        <a ng-href="#/bands/{{band.id}}"><h4>{{band.name}}</h4></a>
-	      </li>
-	  </ul>
-	</div>
-	<!-- END SIDEBAR -->
+<div class="container">
+    <h2 class="col-md-6 col-md-offset-3 text-center">Our Bands <a class="btn btn-primary" href="#/bands/new" role="button">New</a></h2>
+	<table class="table table-condensed">
+	        <tr class="col-md-4 text-center" ng-repeat='band in bands'>
+	          <td class="text-center">
+	            <a ng-href="#/bands/{{band.id}}"><h4>{{band.name}}</h4></a>
+	          </td>
+	        </tr>
+	</table>
+</div>

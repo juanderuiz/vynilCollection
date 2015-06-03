@@ -14,7 +14,7 @@ angular
       if (album.band_id != 0){
         Album.save({band_id: album.band_id}, album);
         console.log("Band ok!")
-        $location.path('/bands');
+        $location.path('/');
       } else {
       	$scope.missingBand = true;
       	console.log("No band selected!");
