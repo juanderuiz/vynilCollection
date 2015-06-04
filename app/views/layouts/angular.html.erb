@@ -18,7 +18,7 @@
         </a>
         <ul class="nav nav-pills navbar-right">
           <!-- Title Area -->
-          <li><a href="#">Welcome back {{ user.email }} </a></li>
+          <li><a href="#">Welcome back <%= current_user.name %>!</a></li>
           <li><a href="#/albums/new">New Album</a></li>
           <li><a ng-href="#/bands">Band List</a></li>
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
