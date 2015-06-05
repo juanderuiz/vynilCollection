@@ -9,7 +9,7 @@
           <th class="text-center">Buy Online</th>
             </tr>
             <tr class="text-center" ng-repeat='album in albums'>
-              <td>{{album.title}}</td>
+              <td><a ng-href="#/bands/{{album.band_id}}/albums/{{album.id}}">{{album.title}}</a></td>
               <td>{{album.band_id}}</td>
               <td>Best Song</td>
               <td class="active"><a href="http://www.pitchfork.com">Link</a></td>

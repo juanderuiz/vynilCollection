@@ -29,7 +29,8 @@
           <ul class="left">
             <li class="divider show-for-small"></li>
             <li>
-              <a href="/users/sign_out">Sign out</a>
+              <!--<a href="/users/sign_out">Sign out</a>-->
+              <%= link_to 'End Session?', destroy_user_session_path, method: :delete %>
             </li>
           </ul>
         </section>

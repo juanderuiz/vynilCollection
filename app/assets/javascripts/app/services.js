@@ -11,7 +11,7 @@ angular.module('myApp.services', ['ngResource'])
     var Album = $resource('/api/v1/bands/:band_id/albums/:id',
                        {band_id: '@band_id', id: '@id'}, {
                         'query':  { method:'GET', isArray:true },
-                        'get':  {method:'GET', isArray:true},
+                        'get':  {method:'GET' },
                         'update': { method: 'PUT' }
                        });
     return Album;

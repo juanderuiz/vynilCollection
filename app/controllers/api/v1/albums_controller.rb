@@ -22,6 +22,8 @@ module Api
       end
 
       def show
+        album = @band.albums.find(params[:id])
+        render json: album, status: 200
       end
 
       def create
