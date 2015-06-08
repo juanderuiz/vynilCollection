@@ -1,13 +1,15 @@
-<h2>New Band</h2>
-<form>
-  <fieldset class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" name="name" placeholder="Joy Division" ng-model="newBand.name">
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="url">Info url</label>
-    <input type="text" class="form-control" id="url" name="url" placeholder="http://es.wikipedia.org/wiki/Joy_Division" ng-model="newBand.url">
-  </fieldset>
-  <button type="submit" class="btn btn-default" ng-click="saveBand(newBand)">Create</button>
-  <a class="btn btn-info" ng-href="#/bands">Discard</a>
-</form>
+<div class="container col-md-4 col-md-offset-4">
+  <h2 class="text-center">New Band</h2>
+  <form>
+    <fieldset class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Joy Division" ng-model="newBand.name">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="url">Info url</label>
+      <input type="text" class="form-control" id="url" name="url" placeholder="http://es.wikipedia.org/wiki/Joy_Division" ng-model="newBand.url">
+    </fieldset>
+    <button type="submit" class="btn btn-default" ng-click="saveBand(newBand)">Create</button>
+    <a class="btn btn-info" ng-href="#/bands">Discard</a>
+  </form>
+</div>
