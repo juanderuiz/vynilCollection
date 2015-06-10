@@ -16,6 +16,14 @@ angular.module('myApp.services', ['ngResource'])
                        });
     return Album;
 })
+.factory('User', function($resource){
+    var User = $resource('/users/:id',
+                       {id: '@id'}, {
+                        'query':  { method:'GET', isArray:true },
+                        'update': { method: 'PUT' }
+                       });
+    return User;
+})
 .factory('ArticleService', function($http, $q) {
   var service = {
     getLatestFeed: function() {

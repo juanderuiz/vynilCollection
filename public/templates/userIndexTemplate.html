@@ -1,0 +1,10 @@
+<div class="container">
+    <h2 class="col-md-6 col-md-offset-3 text-center">Our Users</h2>
+	<table class="table table-condensed">
+	        <tr class="col-md-8 text-center" ng-repeat='user in users'>
+	          <td class="text-center">
+	            <a ng-href="#/users/{{user.id}}"><h4>{{user.name}}</h4></a>
+	          </td>
+	        </tr>
+	</table>
+</div>
