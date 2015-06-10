@@ -12,6 +12,8 @@ module Api
       def index
         if  @band == "No band"
       	  albums = Album.limit(10).order('id DESC')
+        elsif @band == "forProfile"
+          albums = Album.where("user_id = ?", @userId).order('band_id ASC')
         else
           albums = @band.albums
         end
@@ -57,8 +59,13 @@ module Api
       private
         # Use callbacks to share common setup or constraints between actions.
         def get_band
-          if params[:band_id] == "NO" #If there's no id, it's searching the latest
+          if (params[:band_id] == "NO") 
+            #If there's no band id, it's searching the latest 
             @band = "No band"
+          elsif (params[:band_id] == "forProfile")
+            #or it's searching the albums for the user profile in params[:user_id]
+            @band = "forProfile"
+            @userId = params[:user_id]
           else
             @band = Band.find(params[:band_id])
           end

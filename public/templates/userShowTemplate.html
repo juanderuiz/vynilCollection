@@ -1,0 +1,42 @@
+<div class="container-fluid">
+	<div class="col-md-1">
+	  <a class="btn btn-info" ng-href="#">Go to Dashboard</a>
+	</div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 text-center">
+        <h3>Profile Page of User Nº{{userProfileId}}</h3>
+    </div>
+  </div>
+  <div class="row">
+	  <div id="albumList" class="col-md-8 text-center">
+	    <h3>His Albums</h3>      
+		  <table class="table table-hover">
+		        <tr class="text-center info">
+		          <th class="text-center">Album</th>
+		          <th class="text-center">Band</th>
+		          <th class="text-center">Best song</th>
+		          <th class="text-center">Press Review</th>
+		          <th class="text-center">Buy Online</th>
+		            </tr>
+		            <tr class="text-center" ng-repeat='album in albums'>
+		              <td><a ng-href="#/bands/{{album.band_id}}/albums/{{album.id}}">{{album.title}}</a></td>
+		              <td><a ng-href="#/bands/{{album.band_id}}">{{album.band_id}}</a></td>
+		              <td>Best Song</td>
+		              <td class="active"><a href="http://www.pitchfork.com">Link</a></td>
+		              <td class="active"><a href="http://www.pitchfork.com">Buy</a></td>
+		            </tr>
+		  </table>
+	  </div>
+	  <div id="bandList" class="col-md-3 col-md-offset-1 text-center">
+	    <h3>Bands Created in the App</h3>      
+		  <table class="table table-hover">
+		        <tr class="text-center info" ng-repeat='band in bands'>
+		              <td><a ng-href="#/bands/{{band.id}}">{{band.name}}</a></td>
+		        </tr>
+		  </table>
+	  </div>
+  </div>
+</div>

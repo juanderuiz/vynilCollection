@@ -2,15 +2,20 @@ module Api
   module V1
     class BandsController < ApplicationController
       #skip_before_filter  :verify_authenticity_token
-      before_filter :authenticate_user!#, only: [:new, :create]
+      before_filter :authenticate_user!, :get_user_id #, only: [:new, :create]
 
       def default_serializer_options
         {root: false}
       end
 
       def index
-      	bands = Band.all.order(name: :asc)
-        render json: bands, status: 200
+        if @userProfileId
+          bands = Band.where("user_id = ?", @userProfileId).order('name ASC')
+          render json: bands, status: 200
+        else
+      	  bands = Band.all.order(name: :asc)
+          render json: bands, status: 200
+        end
       end
 
       def show
@@ -48,6 +53,10 @@ module Api
       end
 
       private
+
+      def get_user_id
+        @userProfileId = params[:user_id] ? params[:user_id] : nil
+      end
       def band_params
       	params.require(:band).permit(:name,:url,:user_id)
       end
