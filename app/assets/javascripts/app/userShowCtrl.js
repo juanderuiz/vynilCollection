@@ -1,7 +1,9 @@
 angular
   .module('myApp.userShowCtrl',[])
-  .controller('userShowCtrl', function($scope, Band, Album, $routeParams, $location, session) {
+  .controller('userShowCtrl', function($scope, User, Band, Album, $routeParams, $location, session) {
     //$scope.band = Band.get({id: $routeParams.band_id});
+    $scope.profileUser = User.get({id: $routeParams.id});
+
     Album.query({band_id: "forProfile", user_id: $routeParams.id}).$promise.then(function(albums) {
       $scope.albums = albums;
       if (albums.length > 0){
@@ -19,7 +21,7 @@ angular
       }
     });
     //We need the user to get his ID
-    $scope.user = session.user;
-    $scope.userProfileId = $routeParams.id;
+    $scope.user = session.user; //logged user
+    //$scope.userProfileId = $routeParams.id;
 
 });

@@ -1,9 +1,18 @@
 class Users::UsersController < Devise::SessionsController
   respond_to :json
 
+  def default_serializer_options
+    {root: false}
+  end
+
   def index
     users = User.all.order('id ASC')
     render json: users, status: 200
+  end
+
+  def show
+    user = User.find(params[:id])
+    render json: user, status: 200
   end
 
   def is_user
