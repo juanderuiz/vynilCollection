@@ -8,6 +8,7 @@
   <div class="row">
     <div class="col-md-12 text-center">
         <h3>Profile Page of {{profileUser.name}}</h3>
+        <input type="text" ng-model="search.title">
     </div>
   </div>
   <div class="row">
@@ -21,7 +22,7 @@
 		          <th class="text-center">Press Review</th>
 		          <th class="text-center">Buy Online</th>
 		            </tr>
-		            <tr class="text-center" ng-repeat='album in albums'>
+		            <tr class="text-center" ng-repeat='album in albums | filter:search'>
 		              <td><a ng-href="#/bands/{{album.band_id}}/albums/{{album.id}}">{{album.title}}</a></td>
 		              <td><a ng-href="#/bands/{{album.band_id}}">{{album.band_id}}</a></td>
 		              <td>Best Song</td>
