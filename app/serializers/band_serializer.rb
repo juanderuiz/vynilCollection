@@ -1,5 +1,5 @@
 class BandSerializer < ActiveModel::Serializer
-  attributes :id, :name, :user_id
+  attributes :id, :name, :url, :user_id
 
-  has_many :albums, embed: :ids
+  #has_many :albums, embed: :ids
 end
