@@ -40,8 +40,10 @@ module Api
       end
 
       def update
-        album = @band.albums.find(params[:id])
+        #album = @band.albums.find(params[:id])
+        album = Album.find(params[:id])
         album.title = album_params[:title]
+        album.band_id = album_params[:band_id]
         if album.save
           render json: album, status: 200 #, location: url_for([@band, album])
         else
