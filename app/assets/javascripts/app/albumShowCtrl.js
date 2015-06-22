@@ -14,7 +14,14 @@ angular
     //We need the user to get his ID
     $scope.user = session.user;
 
-  	$scope.deleteAlbum = function(id){
-      
+  	$scope.deleteAlbum = function(band,id){
+  	    var x = window.confirm("Are you sure?")
+        if (x){
+          Album.delete({band_id: band, id: id});
+          console.log("Borrando " + $scope.album.title);
+          $location.path('/bands/' + $scope.album.band_id);
+        } else {
+          console.log("Aborting delete album " + $scope.album.title );
+        }
     };
 });

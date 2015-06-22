@@ -9,7 +9,7 @@
 	  <h5>Owner <a href="#/users/{{album.user_id}}">{{album.user_id}}</a></h5>
 	  <div ng-show="owner">
 	    <a class="btn btn-info" ng-href="#/bands/{{band.id}}/albums/{{album.id}}/edit">Edit</a>
-	    <a class="btn btn-danger" ng-click="">Delete :(</a>
+	    <a class="btn btn-danger" ng-click="deleteAlbum(band.id,album.id)">Delete :(</a>
 	  </div>
 	</div>
 </div>

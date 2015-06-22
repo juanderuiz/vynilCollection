@@ -53,8 +53,7 @@ module Api
 
       def destroy
         album = @band.albums.find(params[:id])
-        album.destroy!
-        #@band.decreaseTotal
+        album.destroy
         render nothing: true, status: 204
       end
 
