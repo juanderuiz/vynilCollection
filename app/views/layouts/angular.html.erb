@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "shareup" %></title>
-    <%= stylesheet_link_tag "application" %>
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
@@ -21,19 +21,8 @@
           <li><a href="#">Welcome back <%= current_user.name %>!</a></li>
           <li><a href="#/albums/new">New Album</a></li>
           <li><a ng-href="#/bands">Band List</a></li>
-          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+          <li><%= link_to 'End Session?', destroy_user_session_path, method: :delete %></li>
         </ul>
-
-        <section class="top-bar-section">
-          <!-- Right Nav Section -->
-          <ul class="left">
-            <li class="divider show-for-small"></li>
-            <li>
-              <!--<a href="/users/sign_out">Sign out</a>-->
-              <%= link_to 'End Session?', destroy_user_session_path, method: :delete %>
-            </li>
-          </ul>
-        </section>
       </div>
     </div>
     <div class="container-fluid">

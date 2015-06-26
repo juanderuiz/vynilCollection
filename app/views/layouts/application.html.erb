@@ -15,42 +15,23 @@
 
   	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-  	<%= stylesheet_link_tag    "application" %>
+  	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
 
-  <nav class="top-bar">
-  <ul class="title-area">
-    <!-- Title Area -->
-    <li class="name">
-      <h1><a href="#">Vynil Collection App</a><span><i class="glyphicon glyphicon-cd"></i></span></h1>
-    </li>
-    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
-
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="divider show-for-small"></li>
-      <% if user_signed_in? %>
-        
-      <% else %>
-        <li class="has-form">
-          <a class="button" href="/users/sign_up">Sign up</a>
-        </li>
-      <% end %>
-    </ul>
-  </section>
-</nav>
+  <div class="container-fluid">
+    <div class="row text-center">
+      <%= image_tag "vinilos.jpg" %>
+    </div>
+  </div>
   
-  <div class="row">
+  <div class="container-fluid">
     <%= yield %>
   </div>
-
     
     <%= javascript_include_tag "application" %>
   </body>

@@ -6,11 +6,13 @@ class Users::UsersController < Devise::SessionsController
   end
 
   def index
+    reject_if_not_authorized_request!
     users = User.all.order('id ASC')
     render json: users, status: 200
   end
 
   def show
+    reject_if_not_authorized_request!
     user = User.find(params[:id])
     render json: user, status: 200
   end
