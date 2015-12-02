@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute', 'myApp.controllers', 'myApp.userIndexCtrl', 'myApp.userShowCtrl', 'myApp.bandIndexCtrl', 'myApp.bandNewCtrl', 'myApp.bandShowCtrl', 'myApp.bandEditCtrl', 'myApp.albumNewCtrl', 'myApp.albumShowCtrl', 'myApp.albumEditCtrl', 'myApp.services', 'myApp.directives', 'myApp.filters', 'ngAnimate'])
+angular.module('myApp', ['ngRoute', 'ngResource', 'myApp.controllers', 'myApp.userIndexCtrl', 'myApp.userShowCtrl', 'myApp.bandIndexCtrl', 'myApp.bandNewCtrl', 'myApp.bandShowCtrl', 'myApp.bandEditCtrl', 'myApp.albumNewCtrl', 'myApp.albumShowCtrl', 'myApp.albumEditCtrl', 'myApp.services', 'myApp.directives', 'myApp.filters', 'ngAnimate'])
 .config(function($routeProvider) {
   $routeProvider
   .when('/', {

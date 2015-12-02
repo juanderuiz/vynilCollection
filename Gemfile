@@ -48,7 +48,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'angularjs-rails', '>= 1.2.0.rc1'
+#gem 'angularjs-rails', '>= 1.2.0.rc1'
 gem 'zurb-foundation'
 
 # Use ActiveModel has_secure_password
