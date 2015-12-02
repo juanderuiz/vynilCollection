@@ -1,4 +1,4 @@
-angular.module('myApp.controllers', [])
+angular.module('myApp.controllers', ['ngRoute'])
 .controller('HomeController', function($scope, session, SessionService, ArticleService, Share, Album) {
   ArticleService.getLatestFeed()
   .then(function(data) {
